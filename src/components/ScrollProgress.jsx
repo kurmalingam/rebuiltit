@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ScrollProgress.css';
 
 export default function ScrollProgress(){
   const [w, setW] = useState('0%');  // state to store width of progress bar

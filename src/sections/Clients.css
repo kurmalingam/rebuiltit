@@ -1,0 +1,58 @@
+/* ========================
+   Clients / Carousel
+   ======================== */
+
+/* Carousel Container */
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Track for sliding animation */
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+  gap: 20px; /* horizontal space between slides */
+}
+
+/* Individual client slides */
+.slide {
+  min-width: calc(100vw - 20px); /* full viewport minus gap */
+  max-width: calc(100vw - 20px);
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px; /* optional: makes gap more visible */
+}
+
+/* Infinite scroll animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* half because slides are duplicated */
+}
+
+/* Section title */
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide { padding: 30px 15px; }
+  .section-title { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .slide { padding: 20px 10px; }
+  .section-title { font-size: 1.6rem; }
+}

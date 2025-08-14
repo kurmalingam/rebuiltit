@@ -1,0 +1,47 @@
+/* ========================
+   Community Section
+   ======================== */
+#community {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 100px 0;
+  text-align: center;
+}
+
+/* Section Title */
+#community h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* Muted Description */
+#community .muted {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* Inline List */
+#community ul.inline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+#community ul.inline li {
+  background: var(--glass);
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#community ul.inline li:hover {
+  transform: translateY(-2px);
+  background: rgba(119, 255, 187, 0.15);
+}

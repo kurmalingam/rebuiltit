@@ -1,0 +1,124 @@
+/* ========================
+   4. Navbar
+   ======================== */
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(7,9,15,0.7), rgba(7,9,15,0.1));
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-inner {
+  width: min(1200px, 92%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: .4px;
+  font-size: 1.15rem;
+  color: var(--fg);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: 0.25s;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--fg);
+  border-color: var(--glass-border);
+  background: var(--glass);
+}
+
+.nav-link.active {
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+}
+
+/* Hamburger / Mobile */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--fg);
+  background: transparent;
+  border: none;
+  z-index: 1100;
+}
+/* ========================
+   5. Dark/Light Mode Toggle
+   ======================== */
+.theme-toggle {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2px;
+  transition: background 0.3s, justify-content 0.3s;
+  margin-right: 10px;
+  z-index: 1200;
+}
+
+.theme-toggle .icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  font-size: 14px;
+}
+
+body.dark .theme-toggle { justify-content: flex-end; }
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 220px;
+    height: calc(100vh - 70px);
+    background: var(--bg-2);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 18px;
+    transition: right 0.3s ease-in-out;
+    border-left: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-links.show { right: 0; }
+
+  .nav-link {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1.1rem;
+  }
+}

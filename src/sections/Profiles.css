@@ -1,0 +1,44 @@
+/* ========================
+   Profiles Section
+   ======================== */
+#profiles {
+  padding: 100px 0;
+  text-align: center;
+}
+
+#profiles h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #e0f7fa; /* title color */
+}
+
+#profiles .muted {
+  color: #b0bec5; /* muted description */
+  margin-bottom: 12px;
+}
+
+#profiles ul.inline {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+#profiles ul.inline li {
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05); /* glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #4fc3f7; /* accent color */
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+#profiles ul.inline li:hover {
+  transform: translateY(-3px);
+  background: rgba(79, 195, 247, 0.15);
+}

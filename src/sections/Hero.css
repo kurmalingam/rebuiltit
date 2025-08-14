@@ -1,0 +1,18 @@
+.hero-subtitle {
+  color: #4fc3f7; /* bright sky blue for subtitle/typewriter */
+}
+
+.hero-tagline {
+  color: #b0bec5; /* subtle cool gray for tagline */
+}
+
+.hero-content::after {
+  background: radial-gradient(circle, #4dd0e1 0%, transparent 70%); /* soft cyan glow */
+}
+
+.hero-content::before {
+  background: radial-gradient(circle, #81d4fa 0%, transparent 70%); /* lighter blue glow */
+}
+.muted { color: var(--muted); margin-bottom: 12px; }
+section { width:min(1200px, 92%); margin:0 auto; padding:100px 0; }
+.top-space { padding-top:120px; }

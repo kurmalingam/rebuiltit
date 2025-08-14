@@ -1,0 +1,22 @@
+.projects-grid { grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
+.project-card { cursor:pointer }
+.project-title { font-weight:700; margin:6px 0 2px }
+.badge { font-size:.75rem; color:#06101a; display:inline-block; padding:4px 10px; border-radius:999px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
+
+.flip { perspective: 1000px; height: 200px; }
+.flip-inner { position:relative; height:100%; width:100%; transform-style:preserve-3d; transition: transform .6s; }
+.flip:hover .flip-inner { transform: rotateY(180deg) }
+.flip-face { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:18px; border-radius:14px; backface-visibility:hidden; }
+.flip-back { transform: rotateY(180deg); color:var(--bg); background: linear-gradient(135deg, var(--brand), var(--brand-2)); } 
+.grid { display:grid; gap:18px; }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px; padding: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.25);
+  backdrop-filter: blur(12px);
+  transform-style: preserve-3d;
+  transition: transform .25s ease;
+}
+.glass:hover { transform: translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg); }

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import './Hero.css';
 
 export default function Hero() {
   return (
@@ -11,7 +12,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="hero-title">Welcome to <span>TechStack Tribe</span></h1>
+        <h1 className="hero-title">Welcome to <span>Rebuilt-It</span></h1>
         <h2 className="hero-subtitle">
           <Typewriter
             options={{

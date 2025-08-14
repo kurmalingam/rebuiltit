@@ -1,8 +1,9 @@
 import React from 'react';
+import './Services.css';
 
 const items = [
   {title:'Full Stack Development', front:'💻', back:'Modern web apps, APIs, dashboards, and e‑commerce with robust CI/CD.'},
-  {title:'Embedded Systems & IoT', front:'🤖', back:'Wearables, sensors, and connected devices with cloud integration.'},
+  {title:'Embedded Systems & IoT', front:'🤖', back:'Wearables, sensors, and connected devices with cloud integration and firmware development.'},
   {title:'Antenna Design', front:'📡', back:'High‑performance RF designs tuned for your band and constraints.'},
 ];
 
