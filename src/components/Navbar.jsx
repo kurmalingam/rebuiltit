@@ -29,7 +29,7 @@ const Navbar = ({ theme, setTheme }) => {
         <div className={`nav-links ${menuOpen ? "show" : ""}`}>
           <a href="#services" className="nav-link">Services</a>
           <a href="#clients" className="nav-link">Clients</a>
-          <a href="#book" className="nav-link">Get In Touch</a>
+          <a href="#booking" className="nav-link">Get In Touch</a>
           <a href="#community" className="nav-link">Community</a>
           <a href="#profiles" className="nav-link">Profiles</a>
         </div>
