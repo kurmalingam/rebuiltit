@@ -10,7 +10,6 @@ import Projects from './sections/Projects.jsx';
 import Booking from './sections/Booking.jsx';
 import Community from './sections/Community.jsx';
 import Profiles from './sections/Profiles.jsx';
-import Testimonials from './sections/Testimonials.jsx';
 import CustomCursor from './sections/CustomCursor.jsx'
 
 export default function App() {
@@ -34,7 +33,6 @@ export default function App() {
       <Booking />
       <Community />
       <Profiles />
-      <Testimonials />
       <footer>© {new Date().getFullYear()} Techstack Tribe. All rights reserved.</footer>
       <BackToTop theme={theme} />
     </>
