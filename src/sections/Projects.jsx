@@ -19,7 +19,7 @@ const data = [
     desc: "Wearable device to monitor digit sucking habits in children, featuring low-power design, and cloud analytics."
   },
   {
-    title: "Design and Development of Interior Weight Measuring System",
+    title: "Design and Development of Interior Weight Measuring System in an Indirect Solar Dehydrator",
     category: "Embedded System & IoT",
     desc: "IoT system for monitoring interior weights in solar dehydrator, including load cells and HX711 amplifier."
   },
