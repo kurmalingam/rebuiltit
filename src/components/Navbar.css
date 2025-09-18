@@ -81,6 +81,7 @@
   transition: background 0.3s, justify-content 0.3s;
   margin-right: 10px;
   z-index: 1200;
+ 
 }
 
 .theme-toggle .icon {
@@ -92,7 +93,10 @@
   transition: transform 0.3s;
   font-size: 14px;
 }
-
+button{
+  background: none;
+  font-size: larger;
+}
 body.dark .theme-toggle { justify-content: flex-end; }
 
 @media (max-width: 768px) {

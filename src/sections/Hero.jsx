@@ -20,6 +20,8 @@ export default function Hero() {
                 "Full Stack Development",
                 "Embedded Systems & IoT",
                 "Antenna Design",
+                "iOS & Android apps with one codebase"
+
               ],
               autoStart: true,
               loop: true,

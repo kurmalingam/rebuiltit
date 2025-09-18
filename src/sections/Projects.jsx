@@ -6,39 +6,46 @@ const data = [
   {
     title: "DryPandaFoods",
     category: "Full Stack",
-    desc: "E-commerce platform for dry food products, featuring a headless CMS, Stripe payments, and inventory management."
+    desc: "E-commerce platform for dry food products, featuring a headless CMS, Stripe payments, and inventory management.",
   },
   {
     title: "Weather Forecast App",
     category: "Full Stack",
-    desc: "Real-time weather dashboards with geolocation, Displaying weather data from OpenWeatherMap API."
+    desc: "Real-time weather dashboards with geolocation, Displaying weather data from OpenWeatherMap API.",
+  },
+  {
+    title: "Cross-Platform Mobile Apps",
+    category: "App Development",
+    desc: "I build iOS & Android apps using React Native with one codebase, backed by a secure and scalable backend.",
   },
   {
     title: "Smart Digit Sucking Monitor",
     category: "Embedded System & IoT",
-    desc: "Wearable device to monitor digit sucking habits in children, featuring low-power design, and cloud analytics."
+    desc: "Wearable device to monitor digit sucking habits in children, featuring low-power design, and cloud analytics.",
   },
   {
-    title: "Design and Development of Interior Weight Measuring System in an Indirect Solar Dehydrator",
+    title:
+      "Design and Development of Interior Weight Measuring System in an Indirect Solar Dehydrator",
     category: "Embedded System & IoT",
-    desc: "IoT system for monitoring interior weights in solar dehydrator, including load cells and HX711 amplifier."
+    desc: "IoT system for monitoring interior weights in solar dehydrator, including load cells and HX711 amplifier.",
   },
   {
     title: "UHF/HF Antenna",
     category: "Antenna",
-    desc: "UHF/HF antenna design with simulated and measured gain plots, suitable for various applications."
+    desc: "UHF/HF antenna design with simulated and measured gain plots, suitable for various applications.",
   },
   {
     title: "MIMO Antenna",
     category: "Antenna",
-    desc: "4x4 MIMO antenna design with simulation results, demonstrating high efficiency and low mutual coupling."
-  }
+    desc: "4x4 MIMO antenna design with simulation results, demonstrating high efficiency and low mutual coupling.",
+  },
 ];
 
 const categories = [
   { key: "Full Stack", label: "Full Stack Development Work" },
-  { key: "Embedded System & IoT", label: "Embedded System & IoT" }, // ✅ fixed
-  { key: "Antenna", label: "Antenna Design" }
+  { key: "App Development", label: "Cross-Platform Mobile Apps" },
+  { key: "Embedded System & IoT", label: "Embedded System & IoT" },
+  { key: "Antenna", label: "Antenna Design" },
 ];
 
 export default function Projects() {
@@ -69,6 +76,17 @@ export default function Projects() {
             <ul className="inline" style={{ marginTop: 12 }}>
               <li>🌍 Geolocation</li>
               <li>⚡ Real-time APIs</li>
+            </ul>
+          </>
+        );
+      case "Cross-Platform Mobile Apps":
+        return (
+          <>
+            <p>{project.desc}</p>
+            <ul className="inline" style={{ marginTop: 12 }}>
+              {project.features.map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}
             </ul>
           </>
         );
@@ -138,7 +156,8 @@ export default function Projects() {
                 >
                   <span className="badge">{p.category}</span>
                   <div className="project-title">{p.title}</div>
-                  <p className="muted">{p.desc.slice(0, 80)}...</p>
+                  <p className="muted">{p.desc}</p>
+
                 </div>
               ))}
             </div>
