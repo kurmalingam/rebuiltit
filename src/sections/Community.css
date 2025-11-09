@@ -4,44 +4,102 @@
 #community {
   width: min(1200px, 92%);
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 120px 0;
   text-align: center;
 }
 
 /* Section Title */
 #community h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--brand-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Muted Description */
 #community .muted {
   color: var(--muted);
-  margin-bottom: 12px;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
-/* Inline List */
-#community ul.inline {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+/* Social Links Grid */
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-#community ul.inline li {
+.social-link {
   background: var(--glass);
-  padding: 6px 14px;
-  border-radius: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-#community ul.inline li:hover {
-  transform: translateY(-2px);
-  background: rgba(119, 255, 187, 0.15);
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s;
+}
+
+.social-link:hover::before {
+  left: 100%;
+}
+
+.social-link:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.social-icon {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--brand-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: var(--transition);
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-link h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--fg);
+}
+
+.social-link p {
+  color: var(--muted);
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
 }

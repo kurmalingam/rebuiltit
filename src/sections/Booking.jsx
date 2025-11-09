@@ -15,14 +15,14 @@ export default function Booking() {
         {/* Service Card */}
         <div className="booking-card">
           <h3>Need Our Services?</h3>
-          <p>Tell us your idea and we’ll scope it fast at founder-friendly pricing.</p>
+          <p>Tell us your idea and we'll scope it fast at founder-friendly pricing. From concept to deployment, we've got you covered.</p>
           <a
             href="https://www.linkedin.com/company/rebuilt-it/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-linkedin"
           >
-            <FaLinkedin size={20} style={{ marginRight: '8px' }} />
+            <FaLinkedin size={20} />
             Connect on LinkedIn
           </a>
         </div>
@@ -30,8 +30,11 @@ export default function Booking() {
         {/* Community Card */}
         <div className="booking-card">
           <h3>Join Our Community</h3>
-          <p>Passionate about our mission? Join the community and grow with us.</p>
-          <a className="btn btn-ghost" href="#community">Join Community</a>
+          <p>Passionate about our mission? Join the community and grow with us. Connect with like-minded builders and innovators.</p>
+          <a className="btn btn-ghost" href="#community">
+            <span>Join Community</span>
+            <span>→</span>
+          </a>
         </div>
       </div>
     </section>

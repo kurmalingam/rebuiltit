@@ -13,11 +13,7 @@ const data = [
     category: "Full Stack",
     desc: "Real-time weather dashboards with geolocation, Displaying weather data from OpenWeatherMap API.",
   },
-  {
-    title: "Cross-Platform Mobile Apps",
-    category: "App Development",
-    desc: "I build iOS & Android apps using React Native with one codebase, backed by a secure and scalable backend.",
-  },
+ 
   {
     title: "Smart Digit Sucking Monitor",
     category: "Embedded System & IoT",
@@ -43,7 +39,6 @@ const data = [
 
 const categories = [
   { key: "Full Stack", label: "Full Stack Development Work" },
-  { key: "App Development", label: "Cross-Platform Mobile Apps" },
   { key: "Embedded System & IoT", label: "Embedded System & IoT" },
   { key: "Antenna", label: "Antenna Design" },
 ];
@@ -51,6 +46,7 @@ const categories = [
 export default function Projects() {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(null);
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
   // 🔹 Function to render unique modal content
   const renderModalContent = (project) => {
@@ -133,11 +129,36 @@ export default function Projects() {
     }
   };
 
+  const handleFilterClick = (categoryKey) => {
+    setSelectedFilters((prev) =>
+      prev.includes(categoryKey)
+        ? prev.filter((f) => f !== categoryKey)
+        : [...prev, categoryKey]
+    );
+  };
+
+  const filteredCategories = selectedFilters.length === 0
+    ? categories
+    : categories.filter((cat) => selectedFilters.includes(cat.key));
+
   return (
     <section id="projects" className="top-space">
       <h2 className="section-title">Our Work</h2>
 
-      {categories.map((cat) => {
+      {/* Filter Buttons */}
+      <div className="filter-buttons">
+        {categories.map((cat) => (
+          <button
+            key={cat.key}
+            className={`filter-btn ${selectedFilters.includes(cat.key) ? 'active' : ''}`}
+            onClick={() => handleFilterClick(cat.key)}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      {filteredCategories.map((cat) => {
         const projects = data.filter((p) => p.category === cat.key);
         if (projects.length === 0) return null;
 
@@ -157,7 +178,6 @@ export default function Projects() {
                   <span className="badge">{p.category}</span>
                   <div className="project-title">{p.title}</div>
                   <p className="muted">{p.desc}</p>
-
                 </div>
               ))}
             </div>

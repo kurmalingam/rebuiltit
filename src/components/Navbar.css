@@ -1,17 +1,18 @@
 /* ========================
-   4. Navbar
+   Navbar
    ======================== */
 .navbar {
   position: fixed;
   inset: 0 0 auto 0;
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, rgba(7,9,15,0.7), rgba(7,9,15,0.1));
+  backdrop-filter: blur(20px);
+  background: linear-gradient(180deg, rgba(10,11,20,0.9), rgba(10,11,20,0.4));
   border-bottom: 1px solid var(--glass-border);
+  transition: var(--transition);
 }
 
 .nav-inner {
@@ -22,54 +23,73 @@
 }
 
 .brand {
-  font-weight: 800;
-  letter-spacing: .4px;
-  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  font-size: 1.25rem;
   color: var(--fg);
+  background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--brand-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.brand:hover {
+  transform: scale(1.05);
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .nav-link {
   color: var(--muted);
   text-decoration: none;
-  padding: 8px 10px;
-  border-radius: 10px;
-  transition: 0.25s;
+  padding: 10px 16px;
+  border-radius: 12px;
+  transition: var(--transition);
   border: 1px solid transparent;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.nav-link:hover::before {
+  left: 100%;
 }
 
 .nav-link:hover {
   color: var(--fg);
   border-color: var(--glass-border);
   background: var(--glass);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .nav-link.active {
   color: var(--bg);
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--brand-3));
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Hamburger / Mobile */
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--fg);
-  background: transparent;
-  border: none;
-  z-index: 1100;
-}
-/* ========================
-   5. Dark/Light Mode Toggle
-   ======================== */
+/* Theme Toggle */
 .theme-toggle {
   position: relative;
-  width: 50px;
-  height: 26px;
+  width: 60px;
+  height: 30px;
   border-radius: 50px;
   background: var(--glass);
   border: 1px solid var(--glass-border);
@@ -77,52 +97,99 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 2px;
-  transition: background 0.3s, justify-content 0.3s;
-  margin-right: 10px;
-  z-index: 1200;
- 
+  padding: 3px;
+  transition: var(--transition);
+  margin-right: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
 }
 
 .theme-toggle .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s;
-  font-size: 14px;
+  transition: var(--transition);
+  font-size: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--brand-3));
+  color: var(--bg);
 }
-button{
-  background: none;
-  font-size: larger;
+
+body.dark .theme-toggle {
+  justify-content: flex-end;
+  background: linear-gradient(135deg, var(--brand-2), var(--brand-3));
 }
-body.dark .theme-toggle { justify-content: flex-end; }
+
+body.dark .theme-toggle .icon {
+  background: var(--bg);
+  color: var(--brand);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--fg);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: var(--transition);
+  z-index: 1100;
+}
+
+.menu-toggle:hover {
+  background: var(--brand);
+  color: var(--bg);
+  transform: scale(1.1);
+}
 
 @media (max-width: 768px) {
-  .menu-toggle { display: block; }
-  
+  .navbar {
+    height: 70px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
   .nav-links {
     position: fixed;
     top: 70px;
     right: -100%;
-    width: 220px;
+    width: 280px;
     height: calc(100vh - 70px);
-    background: var(--bg-2);
+    background: var(--glass);
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
-    gap: 18px;
-    transition: right 0.3s ease-in-out;
+    padding: 2rem;
+    gap: 1rem;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-left: 1px solid var(--glass-border);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-hover);
   }
 
-  .nav-links.show { right: 0; }
+  .nav-links.show {
+    right: 0;
+  }
 
   .nav-link {
     width: 100%;
-    padding: 12px 0;
+    padding: 14px 0;
     font-size: 1.1rem;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  .nav-link:hover {
+    transform: translateX(8px);
   }
 }

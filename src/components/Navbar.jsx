@@ -17,7 +17,7 @@ const Navbar = ({ theme, setTheme }) => {
           onClick={toggleTheme}
           title="Toggle Dark/Light Mode"
         >
-          {theme === "dark" ? "🌞" : "🌙"}
+          <span className="icon">{theme === "dark" ? "🌞" : "🌙"}</span>
         </button>
 
         {/* Hamburger */}
